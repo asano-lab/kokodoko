@@ -6,12 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: ここはどこでしょう@アサノ研
+title: ここはどこでしょう?@アサノ研
 email: 18t2003g@shinshu-u.ac.jp
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: >
+  写真からどこで，なにを撮影したものかを推理してください。
+  信州大学工学部　電子情報システム工学科　アサノ研究室
 baseurl: "/kokodoko" # the subpath of your site, e.g. /blog
 url: "http://18t2003@.github.io" # the base hostname & protocol for your site
 github_username: 18t2003g
