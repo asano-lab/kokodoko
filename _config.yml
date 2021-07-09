@@ -7,13 +7,15 @@
 
 # Site settings
 title: ここはどこでしょう?@アサノ研
-email: 18t2003g@shinshu-u.ac.jp
+#email: 18t2003g@shinshu-u.ac.jp
 description: >
   写真からどこで，なにを撮影したものかを推理してください。
-  信州大学工学部　電子情報システム工学科　アサノ研究室
+  信州大学工学部　電子情報システム工学科　アサノ研究室 
 baseurl: "/kokodoko" # the subpath of your site, e.g. /blog
 url: "http://18t2003@.github.io" # the base hostname & protocol for your site
 github_username: 18t2003g
 
 # Build settings
 markdown: kramdown
+theme: Tactile
+
