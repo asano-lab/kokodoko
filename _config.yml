@@ -11,10 +11,10 @@ title: ここはどこでしょう?@アサノ研
 description: >
   写真からどこで，なにを撮影したものかを推理してください。
 baseurl: "/kokodoko" # the subpath of your site, e.g. /blog
-url: "http://18t2003@.github.io" # the base hostname & protocol for your site
-github_username: 18t2003g
+url: "http://asano-lab.github.io" # the base hostname & protocol for your site
+github_username: asano-lab
 
 # Build settings
 markdown: kramdown
-#theme: jekyll-theme-modernist
+theme: jekyll-theme-modernist
 
