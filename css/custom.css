@@ -8,3 +8,7 @@ by Kenta Asahi MIT lic.
 #answer{
     display: none;
 }
+
+li ul li{
+    display: none;
+}
