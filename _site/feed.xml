@@ -5,9 +5,29 @@
     <description>写真からどこで，なにを撮影したものかを推理してください。</description>
     <link>http://localhost:4000/kokodoko/</link>
     <atom:link href="http://localhost:4000/kokodoko/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Oct 2021 17:27:24 +0900</pubDate>
-    <lastBuildDate>Wed, 20 Oct 2021 17:27:24 +0900</lastBuildDate>
+    <pubDate>Wed, 20 Oct 2021 17:30:17 +0900</pubDate>
+    <lastBuildDate>Wed, 20 Oct 2021 17:30:17 +0900</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      <item>
+        <title>第50回</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/kokodoko/images/q50.jpg&quot; alt=&quot;第50回　写真&quot; title=&quot;なにか&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;日本国内のどこかです。施設名を答えてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;javascript:void(0)&quot; id=&quot;ansbtn&quot;&gt;答えを表示する&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote id=&quot;answer&quot;&gt;
+  &lt;p&gt;未発表&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 20 Oct 2021 17:00:00 +0900</pubDate>
+        <link>http://localhost:4000/kokodoko/question/2021/10/20/q50.html</link>
+        <guid isPermaLink="true">http://localhost:4000/kokodoko/question/2021/10/20/q50.html</guid>
+        
+        
+        <category>question</category>
+        
+      </item>
     
       <item>
         <title>第49回</title>
@@ -218,27 +238,6 @@
         <pubDate>Mon, 09 Aug 2021 17:40:00 +0900</pubDate>
         <link>http://localhost:4000/kokodoko/question/2021/08/09/q41.html</link>
         <guid isPermaLink="true">http://localhost:4000/kokodoko/question/2021/08/09/q41.html</guid>
-        
-        
-        <category>question</category>
-        
-      </item>
-    
-      <item>
-        <title>第40回</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/kokodoko/images/q40.jpg&quot; alt=&quot;第40回　写真&quot; title=&quot;駅&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;飯田線の駅です。駅名を答えてください。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;javascript:void(0)&quot; id=&quot;ansbtn&quot;&gt;答えを表示する&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote id=&quot;answer&quot;&gt;
-  &lt;p&gt;長野県泰阜村　田本駅（飯田線）&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Fri, 06 Aug 2021 17:40:00 +0900</pubDate>
-        <link>http://localhost:4000/kokodoko/question/2021/08/06/q40.html</link>
-        <guid isPermaLink="true">http://localhost:4000/kokodoko/question/2021/08/06/q40.html</guid>
         
         
         <category>question</category>
