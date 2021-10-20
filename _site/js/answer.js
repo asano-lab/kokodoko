@@ -8,9 +8,18 @@ MIT lic.
 
 document.addEventListener("DOMContentLoaded", function(){
     //answer (legacy)
-    document.getElementById('ansbtn').addEventListener("click", function(){
-        document.getElementById('answer').style.display = "block";
+    const ans = document.getElementById('ansbtn');
+    if(ans != null){
+        ans.addEventListener("click", function(){
+            document.getElementById('answer').style.display = "block";
+        });
+    }
+    
+    //answer
+    document.getElementById('ans').addEventListener("click", function(){
+        this.parentElement.getElementsByTagName("li")[0].style.display = "block";
     });
+
 
     //hint(s)
     const hints = document.getElementsByClassName('hint');
