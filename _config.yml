@@ -8,8 +8,7 @@
 # Site settings
 title: ここはどこでしょう?@アサノ研
 #email: 18t2003g@shinshu-u.ac.jp
-description: >
-  写真からどこで，なにを撮影したものかを推理してください。
+description: 写真からどこで，なにを撮影したものかを推理してください。
 baseurl: "/kokodoko" # the subpath of your site, e.g. /blog
 url: "http://asano-lab.github.io" # the base hostname & protocol for your site
 github_username: asano-lab
