@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const test = document.getElementById('test');
     if (test != null) {
-        test.addEventListener("click", () => {
-            console.log("yeah");
+        test.addEventListener("input", () => {
+            console.log(test.value);
         });
     }
 });
