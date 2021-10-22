@@ -55,10 +55,10 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
-    const test = document.getElementById('test');
-    if (test != null) {
-        test.addEventListener("input", () => {
-            console.log(test.value);
+    const ans_col = document.getElementById('ans_col');
+    if (ans_col != null) {
+        ans_col.addEventListener("input", () => {
+            console.log(ans_col.value);
         });
     }
 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
     if (judge != null){
         judge.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
-            sha_obj.update(test.value);
+            sha_obj.update(ans_col.value);
             console.log(sha_obj.getHash("HEX"));        
             judge.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
