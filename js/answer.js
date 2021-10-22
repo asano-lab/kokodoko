@@ -56,16 +56,22 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     const ans_col = document.getElementById('ans_col');
-    const judge = document.getElementById('judge');
+    const judge_but = document.getElementById('judge_but');
+    let judge;
+    let ans_hash;
 
-    if (judge != null && ans_col != null) {
-        judge.addEventListener("click", () => {
+    if (judge_but != null && ans_col != null) {
+        judge = judge_but.parentElement.getElementsByTagName("li")[0];
+        if (judge != null) {
+            ans_hash = judge.innerHTML;
+            console.log(ans_hash);
+        }
+
+        judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
             sha_obj.update(ans_col.value);
             console.log(sha_obj.getHash("HEX"));
-            const el = judge.parentElement.getElementsByTagName("li")[0];
-            console.log(el);
-            el.style.display = "block";
+            judge.style.display = "block";
         });
     }
 });
