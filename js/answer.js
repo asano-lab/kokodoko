@@ -56,19 +56,16 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     const ans_col = document.getElementById('ans_col');
-    if (ans_col != null) {
-        ans_col.addEventListener("input", () => {
-            console.log(ans_col.value);
-        });
-    }
-
     const judge = document.getElementById('judge');
-    if (judge != null){
+
+    if (judge != null && ans_col != null) {
         judge.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
             sha_obj.update(ans_col.value);
-            console.log(sha_obj.getHash("HEX"));        
-            judge.parentElement.getElementsByTagName("li")[0].style.display = "block";
+            console.log(sha_obj.getHash("HEX"));
+            const el = judge.parentElement.getElementsByTagName("li")[0];
+            console.log(el);
+            el.style.display = "block";
         });
     }
 });
