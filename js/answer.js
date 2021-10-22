@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let ans_hash;
 
     if (judge_but != null && ans_col != null) {
-        console.log(page_title);
+        console.log(page_title + "転");
         judge = judge_but.parentElement.getElementsByTagName("li");
         ans_hash = [];
         for (let i = 0; i < judge.length; i++) {
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
-            sha_obj.update(ans_col.value);
+            sha_obj.update(page_title + ans_col.value);
             if (ans_hash.includes(sha_obj.getHash("HEX"))) {
                 judge[0].innerHTML = "正解";
             } else {
