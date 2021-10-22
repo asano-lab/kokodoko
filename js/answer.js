@@ -67,9 +67,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const judge = document.getElementById('judge');
     if (judge != null){
-        judge.addEventListener("click", function() {
-            console.log(this);
-            this.parentElement.getElementsByTagName("li")[0].style.display = "block";
+        judge.addEventListener("click", () => {
+            judge.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
     }
 });
