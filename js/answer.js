@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
     */
     const ans = document.getElementById('ans');
     if(ans != null){
+        console.log(ans);
         ans.addEventListener("click", function(){
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
@@ -48,21 +49,27 @@ document.addEventListener("DOMContentLoaded", function(){
     */
     const hints = document.getElementsByClassName('hint');
     for(let i = 0; i < hints.length; i++){
+        console.log(hints[0]);
         hints[i].addEventListener("click", function(){
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
     }
 
-    const test = document.getElementById('test');
     const sha_obj = new jsSHA("SHA-256", "TEXT");
 
+    const test = document.getElementById('test');
     if (test != null) {
         console.log(sha_obj);
         test.addEventListener("input", () => {
-            const judge = document.getElementById("judge");
             console.log(test.value);
-            judge.innerHTML = "正解";
-            judge.style.display = "block";
+        });
+    }
+
+    const judge = document.getElementById('judge');
+    if (judge != null){
+        judge.addEventListener("click", function() {
+            console.log(this);
+            this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
     }
 });
