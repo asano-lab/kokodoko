@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function(){
     const ansbtn = document.getElementById('ansbtn');
     if(ansbtn != null){
         ansbtn.addEventListener("click", function(){
-            console.log(document.getElementById('answer'));
             document.getElementById('answer').style.display = "block";
         });
     }
@@ -50,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function(){
     const hints = document.getElementsByClassName('hint');
     for(let i = 0; i < hints.length; i++){
         hints[i].addEventListener("click", function(){
-            // console.log(this.parentElement.getElementsByTagName("li")[0]);
-            // console.log(this.parentElement.getElementsByTagName("li")[0].style);
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
     }
@@ -60,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function(){
     if (test != null) {
         test.addEventListener("input", () => {
             const judge = document.getElementById("judge");
-            console.log(judge)
             console.log(test.value);
             judge.innerHTML = "正解";
             judge.style.display = "block";
