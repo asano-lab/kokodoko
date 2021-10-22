@@ -54,9 +54,10 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     const test = document.getElementById('test');
-    // const sha_obj = new jsSHA("SHA-256", "TEXT");
+    const sha_obj = new jsSHA("SHA-256", "TEXT");
 
     if (test != null) {
+        console.log(sha_obj);
         test.addEventListener("input", () => {
             const judge = document.getElementById("judge");
             console.log(test.value);
