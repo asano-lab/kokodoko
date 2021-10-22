@@ -71,7 +71,11 @@ document.addEventListener("DOMContentLoaded", function(){
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
             sha_obj.update(ans_col.value);
-            console.log(sha_obj.getHash("HEX"));
+            if (ans_hash.includes(sha_obj.getHash("HEX"))) {
+                judge[0].innerHTML = "正解";
+            } else {
+                judge[0].innerHTML = "不正解";
+            }
             judge[0].style.display = "block";
         });
     }
