@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function(){
     */
     const ans = document.getElementById('ans');
     if(ans != null){
-        console.log(ans);
         ans.addEventListener("click", function(){
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function(){
     */
     const hints = document.getElementsByClassName('hint');
     for(let i = 0; i < hints.length; i++){
-        console.log(hints[0]);
         hints[i].addEventListener("click", function(){
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
@@ -66,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function(){
         for (let i = 0; i < judge.length; i++) {
             ans_hash.push(judge[i].innerHTML);
         }
-        console.log(ans_hash);
 
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
