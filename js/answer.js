@@ -52,4 +52,11 @@ document.addEventListener("DOMContentLoaded", function(){
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
     }
+
+    const test = document.getElementById('test');
+    if (test != NULL) {
+        test.addEventListener("click", () => {
+            console.log("yeah");
+        });
+    }
 });
