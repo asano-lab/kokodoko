@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const ansbtn = document.getElementById('ansbtn');
     if(ansbtn != null){
         ansbtn.addEventListener("click", function(){
+            console.log(document.getElementById('answer'));
             document.getElementById('answer').style.display = "block";
         });
     }
@@ -58,7 +59,11 @@ document.addEventListener("DOMContentLoaded", function(){
     const test = document.getElementById('test');
     if (test != null) {
         test.addEventListener("input", () => {
+            const judge = document.getElementById("judge");
+            console.log(judge)
             console.log(test.value);
+            judge.innerHTML = "正解";
+            judge.style.display = "block";
         });
     }
 });
