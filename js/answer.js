@@ -53,12 +53,14 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    const page_title = document.title;
     const ans_col = document.getElementById('ans_col');
     const judge_but = document.getElementById('judge_but');
     let judge;
     let ans_hash;
 
     if (judge_but != null && ans_col != null) {
+        console.log(page_title);
         judge = judge_but.parentElement.getElementsByTagName("li");
         ans_hash = [];
         for (let i = 0; i < judge.length; i++) {
