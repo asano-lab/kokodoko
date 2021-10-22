@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const hints = document.getElementsByClassName('hint');
     for(let i = 0; i < hints.length; i++){
         hints[i].addEventListener("click", function(){
+            // console.log(this.parentElement.getElementsByTagName("li")[0]);
+            // console.log(this.parentElement.getElementsByTagName("li")[0].style);
             this.parentElement.getElementsByTagName("li")[0].style.display = "block";
         });
     }
