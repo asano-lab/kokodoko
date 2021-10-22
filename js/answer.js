@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function(){
     let ans_hash;
 
     if (judge_but != null && ans_col != null) {
-        console.log(page_title + "転");
         judge = judge_but.parentElement.getElementsByTagName("li");
         ans_hash = [];
         for (let i = 0; i < judge.length; i++) {
