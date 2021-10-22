@@ -61,17 +61,18 @@ document.addEventListener("DOMContentLoaded", function(){
     let ans_hash;
 
     if (judge_but != null && ans_col != null) {
-        judge = judge_but.parentElement.getElementsByTagName("li")[0];
-        if (judge != null) {
-            ans_hash = judge.innerHTML;
-            console.log(ans_hash);
+        judge = judge_but.parentElement.getElementsByTagName("li");
+        ans_hash = [];
+        for (let i = 0; i < judge.length; i++) {
+            ans_hash.push(judge[i].innerHTML);
         }
+        console.log(ans_hash);
 
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
             sha_obj.update(ans_col.value);
             console.log(sha_obj.getHash("HEX"));
-            judge.style.display = "block";
+            judge[0].style.display = "block";
         });
     }
 });
