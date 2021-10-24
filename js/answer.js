@@ -54,19 +54,19 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     // 入力欄の作成
-    const ans_input = document.getElementById('ans_input');
+    let ans_input = document.getElementById('ans_input');
     if (ans_input != null) {
-        ans_input.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_col\"></label>";
+        ans_input.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label>";
+        ans_input = document.getElementById('ans_input');
     }
 
     const page_title = document.title;
-    const ans_col = document.getElementById('ans_col');
     let judge_but = document.getElementById('judge_but');
     let judge_out;
     let judge;
     let ans_hash;
 
-    if (judge_but != null && ans_col != null) {
+    if (judge_but != null && ans_input != null) {
         judge = judge_but.parentElement.getElementsByTagName("li");
         ans_hash = [];
         // 解答の配列を作成
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
-            sha_obj.update(page_title + ans_col.value);
+            sha_obj.update(page_title + ans_input.value);
             if (ans_hash.includes(sha_obj.getHash("HEX"))) {
                 judge_out.innerHTML = "正解";
             } else {
