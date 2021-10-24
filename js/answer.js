@@ -77,4 +77,14 @@ document.addEventListener("DOMContentLoaded", function(){
             judge[0].style.display = "block";
         });
     }
+
+    const ans_input = document.getElementById('ans_input');
+    let ans_input_p;
+
+    if (ans_input != null) {
+        console.log(ans_input);
+        ans_input_p = ans_input.parentElement;
+        console.log(ans_input_p);
+        ans_input_p.outerHTML = "<label>回答入力欄 <input type=\"text\"></label>";
+    }
 });
