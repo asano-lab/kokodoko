@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 ans_hash.push(cand[i].innerHTML);
             }
         }
-        console.log(ans_hash);
         // まとめて置換
         ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label><button id=\"judge_but\">判定</button><h3 id=\"judge\"></h3>";
         
