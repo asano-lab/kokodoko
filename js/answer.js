@@ -53,34 +53,41 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    // 入力欄の作成
     const ans_input = document.getElementById('ans_input');
-
     if (ans_input != null) {
-        ans_input.outerHTML = "<label>回答入力欄 <input type=\"text\" id=\"ans_col\"></label>";
+        ans_input.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_col\"></label>";
     }
 
     const page_title = document.title;
     const ans_col = document.getElementById('ans_col');
-    const judge_but = document.getElementById('judge_but');
+    let judge_but = document.getElementById('judge_but');
+    let judge_out;
     let judge;
     let ans_hash;
 
     if (judge_but != null && ans_col != null) {
         judge = judge_but.parentElement.getElementsByTagName("li");
         ans_hash = [];
+        // 解答の配列を作成
         for (let i = 0; i < judge.length; i++) {
             ans_hash.push(judge[i].innerHTML);
         }
+
+        // 強引にボタンに置換
+        judge_but.outerHTML = "<button id=\"judge_but\">判定</button><p id=\"judge_out\"></p>";
+        judge_but = document.getElementById('judge_but');
+        judge_out = document.getElementById('judge_out');
+        console.log(judge_out);
 
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
             sha_obj.update(page_title + ans_col.value);
             if (ans_hash.includes(sha_obj.getHash("HEX"))) {
-                judge[0].innerHTML = "正解";
+                judge_out.innerHTML = "正解";
             } else {
-                judge[0].innerHTML = "不正解";
+                judge_out.innerHTML = "不正解";
             }
-            judge[0].style.display = "block";
         });
     }
 });
