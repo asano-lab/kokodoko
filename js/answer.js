@@ -53,29 +53,26 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    // タイトルの取得
+    const page_title = document.title;
+
     // 入力欄の作成
     let ans_input = document.getElementById('ans_input');
-    if (ans_input != null) {
-        // console.log(ans_input.parentElement);
-        ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label>";
-        ans_input = document.getElementById('ans_input');
-    }
-
-    const page_title = document.title;
-    let judge_but = document.getElementById('judge_but');
-    let judge;
     let ans_hash;
+    let judge_but;
+    let judge;
 
-    if (judge_but != null && ans_input != null) {
-        let cand = judge_but.parentElement.getElementsByTagName("li");
+    if (ans_input != null) {
+        let cand = ans_input.parentElement.getElementsByTagName("li");
         ans_hash = [];
-        // 解答候補の配列を作成
-        for (let i = 0; i < cand.length; i++) {
+        // 自分自身を除く
+        for (let i = 1; i < cand.length; i++) {
             ans_hash.push(cand[i].innerHTML);
         }
-
-        // 強引にボタンに置換
-        judge_but.outerHTML = "<button id=\"judge_but\">判定</button><p id=\"judge\"></p>";
+        console.log(ans_hash);
+        ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label><button id=\"judge_but\">判定</button><p id=\"judge\"></p>";
+        
+        ans_input = document.getElementById('ans_input');
         judge_but = document.getElementById('judge_but');
         judge = document.getElementById('judge');
 
