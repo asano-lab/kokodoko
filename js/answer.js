@@ -53,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
+    const ans_input = document.getElementById('ans_input');
+
+    if (ans_input != null) {
+        ans_input.outerHTML = "<label>回答入力欄 <input type=\"text\" id=\"ans_col\"></label>";
+    }
+
     const page_title = document.title;
     const ans_col = document.getElementById('ans_col');
     const judge_but = document.getElementById('judge_but');
@@ -76,15 +82,5 @@ document.addEventListener("DOMContentLoaded", function(){
             }
             judge[0].style.display = "block";
         });
-    }
-
-    const ans_input = document.getElementById('ans_input');
-    let ans_input_p;
-
-    if (ans_input != null) {
-        console.log(ans_input);
-        ans_input_p = ans_input.parentElement;
-        console.log(ans_input_p);
-        ans_input_p.outerHTML = "<label>回答入力欄 <input type=\"text\"></label>";
     }
 });
