@@ -66,10 +66,13 @@ document.addEventListener("DOMContentLoaded", function(){
         let cand = ans_input.parentElement.getElementsByTagName("li");
         ans_hash = [];
         // 自分自身を除く
-        for (let i = 1; i < cand.length; i++) {
-            ans_hash.push(cand[i].innerHTML);
+        for (let i = 0; i < cand.length; i++) {
+            if (cand[i] != ans_input) {
+                ans_hash.push(cand[i].innerHTML);
+            }
         }
         console.log(ans_hash);
+        // まとめて置換
         ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label><button id=\"judge_but\">判定</button><h3 id=\"judge\"></h3>";
         
         ans_input = document.getElementById('ans_input');
