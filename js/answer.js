@@ -56,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function(){
     // 入力欄の作成
     let ans_input = document.getElementById('ans_input');
     if (ans_input != null) {
-        ans_input.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label>";
+        // console.log(ans_input.parentElement);
+        ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label>";
         ans_input = document.getElementById('ans_input');
     }
 
