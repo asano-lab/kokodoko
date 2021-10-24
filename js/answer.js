@@ -62,31 +62,29 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const page_title = document.title;
     let judge_but = document.getElementById('judge_but');
-    let judge_out;
     let judge;
     let ans_hash;
 
     if (judge_but != null && ans_input != null) {
-        judge = judge_but.parentElement.getElementsByTagName("li");
+        let cand = judge_but.parentElement.getElementsByTagName("li");
         ans_hash = [];
-        // 解答の配列を作成
-        for (let i = 0; i < judge.length; i++) {
-            ans_hash.push(judge[i].innerHTML);
+        // 解答候補の配列を作成
+        for (let i = 0; i < cand.length; i++) {
+            ans_hash.push(cand[i].innerHTML);
         }
 
         // 強引にボタンに置換
-        judge_but.outerHTML = "<button id=\"judge_but\">判定</button><p id=\"judge_out\"></p>";
+        judge_but.outerHTML = "<button id=\"judge_but\">判定</button><p id=\"judge\"></p>";
         judge_but = document.getElementById('judge_but');
-        judge_out = document.getElementById('judge_out');
-        console.log(judge_out);
+        judge = document.getElementById('judge');
 
         judge_but.addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
             sha_obj.update(page_title + ans_input.value);
             if (ans_hash.includes(sha_obj.getHash("HEX"))) {
-                judge_out.innerHTML = "正解";
+                judge.innerHTML = "正解";
             } else {
-                judge_out.innerHTML = "不正解";
+                judge.innerHTML = "不正解";
             }
         });
     }
