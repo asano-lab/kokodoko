@@ -12,3 +12,7 @@ by Kenta Asahi MIT lic.
 li ul li{
     display: none;
 }
+
+#judge{
+    font-size: 2em;
+}
