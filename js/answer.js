@@ -82,8 +82,10 @@ document.addEventListener("DOMContentLoaded", function(){
             sha_obj.update(document.title + ans_input.value);
             if (ans_hash.includes(sha_obj.getHash("HEX"))) {
                 judge.innerHTML = "正解";
+                judge.style.color = "blue";
             } else {
                 judge.innerHTML = "不正解";
+                judge.style.color = "red";
             }
         });
     }
