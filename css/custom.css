@@ -13,6 +13,7 @@ li ul li{
     display: none;
 }
 
+/* 解答の表示 */
 #judge{
     font-size: 2em;
 }

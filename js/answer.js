@@ -53,13 +53,13 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     }
 
-    // タイトルの取得
-    const page_title = document.title;
+// ******************************************************************************************
+
+    // 以下, 園田が変更
 
     // 入力欄の作成
     let ans_input = document.getElementById('ans_input');
     let ans_hash;
-    let judge_but;
     let judge;
 
     if (ans_input != null) {
@@ -72,15 +72,14 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         }
         // まとめて置換
-        ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label><button id=\"judge_but\">判定</button><h3 id=\"judge\"></h3>";
+        ans_input.parentElement.outerHTML = "<label>解答入力欄 <input type=\"text\" id=\"ans_input\"></label><button id=\"judge_but\">判定</button><p id=\"judge\"></p>";
         
         ans_input = document.getElementById('ans_input');
-        judge_but = document.getElementById('judge_but');
         judge = document.getElementById('judge');
 
-        judge_but.addEventListener("click", () => {
+        document.getElementById('judge_but').addEventListener("click", () => {
             const sha_obj = new jsSHA("SHA-256", "TEXT");
-            sha_obj.update(page_title + ans_input.value);
+            sha_obj.update(document.title + ans_input.value);
             if (ans_hash.includes(sha_obj.getHash("HEX"))) {
                 judge.innerHTML = "正解";
             } else {
