@@ -16,4 +16,5 @@ li ul li{
 /* 解答の表示 */
 #judge{
     font-size: 2em;
+    color: rgb(0, 0, 255);
 }
