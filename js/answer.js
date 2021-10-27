@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // 入力欄の作成
     let ans_input = document.getElementById('ans_input');
+    // ハッシュの配列
     let ans_hash;
     let judge;
 
