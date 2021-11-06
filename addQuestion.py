@@ -129,7 +129,10 @@ class Example(QWidget):
     # ついでに画像ファイルのパスも
     def calcQuestionId(self):
         m_list = [re.search(r'q(\d{3}).md', i) for i in os.listdir(path="./_posts")]
-        self.q_id = max(int(m.group(1)) for m in m_list if m) + 1
+        q_id_list = [int(m.group(1)) for m in m_list if m]
+        self.q_id = 1
+        while self.q_id in q_id_list:
+            self.q_id += 1
         self.fname_img = "images/q{:d}.jpg".format(self.q_id)
     
     def setImage(self, path):
