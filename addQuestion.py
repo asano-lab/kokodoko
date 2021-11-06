@@ -10,7 +10,7 @@ import csv
 import hashlib
 from PyQt5.QtWidgets import (
     QGraphicsScene, QWidget, QPushButton, QApplication, QFileDialog,
-    QTextEdit, QMessageBox, QLabel, QGraphicsView
+    QTextEdit, QMessageBox, QLabel, QGraphicsView, QLineEdit
 )
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QImage, QPixmap
@@ -55,7 +55,16 @@ class Example(QWidget):
         self.calcQuestionId()
         self.initUI()
 
+    # UIの初期化
     def initUI(self):
+        self.id_input = QLineEdit(self)
+        self.id_input.setGeometry(self.X1, self.Y1 - 50, 50, 30)
+        self.id_input.setText("{:d}".format(self.q_id))
+        
+        self.id_label = QLabel(self)
+        self.id_label.setText("問題ID")
+        self.id_label.move(90, self.Y1 - 45)
+
         self.fdbtn = QPushButton("画像ファイルを選択", self)
         self.fdbtn.move(40, self.Y1)
         self.fdbtn.clicked.connect(self.showFileDialog)
@@ -123,7 +132,7 @@ class Example(QWidget):
 
         self.setGeometry(300, 300, 1200, 600)
 
-        self.setWindowTitle("第{:d}問の作成".format(self.q_id))
+        self.setWindowTitle("問題の作成")
         self.show()
 
     # 最新の問題番号を取得し, 次の問題番号を設定
