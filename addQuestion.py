@@ -10,7 +10,7 @@ import csv
 import hashlib
 from PyQt5.QtWidgets import (
     QGraphicsScene, QWidget, QPushButton, QApplication, QFileDialog,
-    QTextEdit, QMessageBox, QLabel, QGraphicsView, QLineEdit
+    QTextEdit, QMessageBox, QLabel, QGraphicsView, QLineEdit, QHBoxLayout
 )
 from PyQt5.QtCore import (Qt, QRegExp)
 from PyQt5.QtGui import (QImage, QPixmap, QRegExpValidator)
@@ -129,6 +129,8 @@ class Example(QWidget):
         # プレビュー
         self.graphics_view = QGraphicsView(self)
         self.graphics_view.setGeometry(700, self.Y1, 300, 300)
+        # self.view_label = QLabel(self)
+        # self.view_label.setGeometry(700, self.Y1, 300, 300)
 
         self.graphics_view_label = QLabel(self)
         self.graphics_view_label.setText("プレビュー")
@@ -154,7 +156,7 @@ class Example(QWidget):
             return
         self.image = QImage(path)
         self.pixmap = QPixmap.fromImage(self.image)
-        print(self.pixmap.height(), self.pixmap.width())
+        # print(self.pixmap.height(), self.pixmap.width())
         self.scene = QGraphicsScene(self)
         self.scene.addPixmap(self.pixmap)
         self.graphics_view.setScene(self.scene)
