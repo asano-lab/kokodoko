@@ -36,6 +36,7 @@ class MyTextEdit(QTextEdit):
 
 class Example(QWidget):
     X1 = 230
+    Y1 = 80
 
     def __init__(self):
         super().__init__()
@@ -56,69 +57,69 @@ class Example(QWidget):
 
     def initUI(self):
         self.fdbtn = QPushButton("画像ファイルを選択", self)
-        self.fdbtn.move(40, 40)
+        self.fdbtn.move(40, self.Y1)
         self.fdbtn.clicked.connect(self.showFileDialog)
 
         self.img_label = QLabel(self)
         self.img_label.setText("ファイルのパスを入力\nまたは入力欄にD&D")
-        self.img_label.move(40, 80)
+        self.img_label.move(40, self.Y1 + 40)
         self.img_label.setAlignment(Qt.AlignCenter)
         
         self.mkbtn = QPushButton("作成", self)
-        self.mkbtn.move(500, 500)
+        self.mkbtn.move(500, self.Y1 + 460)
         self.mkbtn.clicked.connect(self.makeQuestionFiles)
 
         # 画像ファイルのパス入力欄
         self.textEdit = MyTextEdit(self)
-        self.textEdit.setGeometry(self.X1, 40, 400, 80)
+        self.textEdit.setGeometry(self.X1, self.Y1, 400, 80)
         self.textEdit.setText("path/to/image")
 
         # 問題文入力欄
         self.prob_input = QTextEdit(self)
-        self.prob_input.setGeometry(self.X1, 130, 400, 80)
+        self.prob_input.setGeometry(self.X1, self.Y1 + 90, 400, 80)
         self.prob_input.setText("施設名を答えてください。")
 
         self.prob_label = QLabel(self)
         self.prob_label.setText("問題文を記入")
-        self.prob_label.move(70, 140)
+        self.prob_label.move(70, self.Y1 + 100)
 
         # ヒント入力欄
         self.hint_input = QTextEdit(self)
-        self.hint_input.setGeometry(self.X1, 220, 400, 80)
+        self.hint_input.setGeometry(self.X1, self.Y1 + 180, 400, 80)
         self.hint_input.setText("ヒント1,ヒント2,ヒント3")
 
         self.hint_label = QLabel(self)
         self.hint_label.setText("ヒントを記入\n(複数ある場合はcsv形式)")
-        self.hint_label.move(30, 220)
+        self.hint_label.move(30, self.Y1 + 180)
         self.hint_label.setAlignment(Qt.AlignCenter)
         
         # 正誤判定用文字列入力欄
         self.cand_input = QTextEdit(self)
-        self.cand_input.setGeometry(self.X1, 310, 400, 80)
+        self.cand_input.setGeometry(self.X1, self.Y1 + 270, 400, 80)
         self.cand_input.setText("解答候補,かいとうこうほ")
 
         self.cand_label = QLabel(self)
         self.cand_label.setText("解答の候補を記入\n(複数ある場合はcsv形式)")
-        self.cand_label.move(30, 310)
+        self.cand_label.move(30, self.Y1 + 270)
         self.cand_label.setAlignment(Qt.AlignCenter)
 
         # 解答入力欄
         self.ans_input = QTextEdit(self)
-        self.ans_input.setGeometry(self.X1, 400, 400, 80)
+        self.ans_input.setGeometry(self.X1, self.Y1 + 360, 400, 80)
         self.ans_input.setText("長野県長野市…")
 
         self.ans_label = QLabel(self)
         self.ans_label.setText("正確な解答を記入\n(空なら「未発表」扱い)")
-        self.ans_label.move(40, 400)
+        self.ans_label.move(40, self.Y1 + 360)
         self.ans_label.setAlignment(Qt.AlignCenter)
 
         # プレビュー
         self.graphics_view = QGraphicsView(self)
-        self.graphics_view.setGeometry(700, 40, 300, 300)
+        self.graphics_view.setGeometry(700, self.Y1, 300, 300)
 
         self.graphics_view_label = QLabel(self)
         self.graphics_view_label.setText("プレビュー")
-        self.graphics_view_label.move(700, 20)
+        self.graphics_view_label.move(700, self.Y1 - 20)
 
         self.setGeometry(300, 300, 1200, 600)
 
