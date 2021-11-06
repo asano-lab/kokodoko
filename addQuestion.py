@@ -154,6 +154,7 @@ class Example(QWidget):
             return
         self.image = QImage(path)
         self.pixmap = QPixmap.fromImage(self.image)
+        print(self.pixmap.height(), self.pixmap.width())
         self.scene = QGraphicsScene(self)
         self.scene.addPixmap(self.pixmap)
         self.graphics_view.setScene(self.scene)
@@ -172,7 +173,6 @@ class Example(QWidget):
         self.now = datetime.datetime.now()
         fnamer_img = self.textEdit.toPlainText()
         self.q_id = int(self.id_input.text())
-        print(self.q_id)
         self.fnamew_img = "images/q{:d}.jpg".format(self.q_id)
 
         # ファイルの存在確認
@@ -185,7 +185,7 @@ class Example(QWidget):
             
         fnamew = "_posts/" + self.now.strftime('%Y-%m-%d') + "-q{:03d}.md".format(self.q_id)
         if os.path.exists(fnamew):
-            res = QMessageBox.question(self, "警告", "すでに同じIDの問題が存在します。\n上書きしますか？",
+            res = QMessageBox.question(self, "警告", "既に同じIDの問題が存在します。\n上書きしますか？",
                 QMessageBox.Yes | QMessageBox.No, QMessageBox.No
             )
             if res == QMessageBox.No:
@@ -210,7 +210,6 @@ class Example(QWidget):
                 return
         
         content = self.makeMdFile()
-        # print(content)
         
         # markdownの保存
         with open(fnamew, "w", encoding="utf-8") as f:
