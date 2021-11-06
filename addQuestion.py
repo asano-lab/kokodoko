@@ -147,7 +147,6 @@ class Example(QWidget):
         self.q_id = 1
         while self.q_id in q_id_list:
             self.q_id += 1
-        self.fname_img = "images/q{:d}.jpg".format(self.q_id)
     
     def setImage(self, path):
         # 空文字は無視
@@ -171,23 +170,34 @@ class Example(QWidget):
     # ファイル作成
     def makeQuestionFiles(self):
         self.now = datetime.datetime.now()
-        fnamer = self.textEdit.toPlainText()
+        fnamer_img = self.textEdit.toPlainText()
+        self.q_id = int(self.id_input.text())
+        print(self.q_id)
+        self.fnamew_img = "images/q{:d}.jpg".format(self.q_id)
 
         # ファイルの存在確認
-        if not os.path.exists(fnamer):
+        if not os.path.exists(fnamer_img):
             QMessageBox.question(self, "エラー", "パスが存在しません。", QMessageBox.Ok, QMessageBox.Ok)
             return
-        if os.path.isdir(fnamer):
+        if os.path.isdir(fnamer_img):
             QMessageBox.question(self, "エラー", "ディレクトリです。", QMessageBox.Ok, QMessageBox.Ok)
             return
+            
+        fnamew = "_posts/" + self.now.strftime('%Y-%m-%d') + "-q{:03d}.md".format(self.q_id)
+        if os.path.exists(fnamew):
+            res = QMessageBox.question(self, "警告", "すでに同じIDの問題が存在します。\n上書きしますか？",
+                QMessageBox.Yes | QMessageBox.No, QMessageBox.No
+            )
+            if res == QMessageBox.No:
+                return
         
         # 画像を出力
         # jpegファイルかどうかチェック
         for i in JPEG_EXT:
             # jpegならそのままコピー
-            if re.match(i, fnamer):
+            if re.match(i, fnamer_img):
                 try:
-                    shutil.copy2(fnamer, "images/q{:d}.jpg".format(self.q_id))
+                    shutil.copy2(fnamer_img, self.fnamew_img)
                 except shutil.SameFileError:
                     QMessageBox.question(self, "エラー", "コピー元とコピー先が同じです。", QMessageBox.Ok, QMessageBox.Ok)
                     return
@@ -195,11 +205,10 @@ class Example(QWidget):
         # jpeg以外なら圧縮して保存
         else:
             # 画像の保存に失敗した場合はエラー (そもそも画像ファイルが選択されてない)
-            if not self.pixmap.save("images/q{:d}.jpg".format(self.q_id), "jpg"):
+            if not self.pixmap.save(self.fnamew_img, "jpg"):
                 QMessageBox.question(self, "エラー", "画像ファイル作成失敗", QMessageBox.Ok, QMessageBox.Ok)
                 return
         
-        fnamew = "_posts/" + self.now.strftime('%Y-%m-%d') + "-q{:03d}.md".format(self.q_id)
         content = self.makeMdFile()
         # print(content)
         
@@ -233,7 +242,7 @@ class Example(QWidget):
         moji = "---\nlayout: post\ntitle: \"第{:d}回\"\ndate: ".format(self.q_id)
         moji += self.now.strftime('%Y-%m-%d %H:%M:%S +0900\n')
         moji += "categories: question\n---\n\n"
-        moji += "![第{:d}回　写真](/kokodoko/{:s})\n\n".format(self.q_id, self.fname_img)
+        moji += "![第{:d}回　写真](/kokodoko/{:s})\n\n".format(self.q_id, self.fnamew_img)
 
         # 問題文
         moji += self.prob_input.toPlainText() + "\n\n"
