@@ -12,8 +12,8 @@ from PyQt5.QtWidgets import (
     QGraphicsScene, QWidget, QPushButton, QApplication, QFileDialog,
     QTextEdit, QMessageBox, QLabel, QGraphicsView, QLineEdit
 )
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtCore import (Qt, QRegExp)
+from PyQt5.QtGui import (QImage, QPixmap, QRegExpValidator)
 
 # 拡張子の種類
 JPEG_EXT = [r'.*.jpg', r'.*.jpeg', r'.*.JPG', r'.*.JPEG']
@@ -60,6 +60,10 @@ class Example(QWidget):
         self.id_input = QLineEdit(self)
         self.id_input.setGeometry(self.X1, self.Y1 - 50, 50, 30)
         self.id_input.setText("{:d}".format(self.q_id))
+
+        # 入力を数値のみに制限
+        lim = QRegExp("\d+")
+        self.id_input.setValidator(QRegExpValidator(lim))
         
         self.id_label = QLabel(self)
         self.id_label.setText("問題ID")
