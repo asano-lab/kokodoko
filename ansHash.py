@@ -6,7 +6,7 @@ import sys
 qnum = input("Question Number?> ")
 try:
     qnum = int(qnum)
-except TypeError:
+except:
     print("Question Number Invalid!")
     sys.exit(-1)
 
